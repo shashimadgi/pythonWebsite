@@ -4,7 +4,7 @@ import pytest
 import requests
 
 
-@pytest.mark.loginFlow(html)
+@pytest.mark.login(html)
 def test_send_otp_validation():
     payload = {
         "phone": "+917243464979",
@@ -89,7 +89,7 @@ def test_send_otp_validation():
         print(response.text)
 
 
-@pytest.mark.loginFlow(html)
+@pytest.mark.login(html)
 def test_verify_otp_validation():
     payload = {
         "phone": "+919999999999",
@@ -128,7 +128,7 @@ def test_verify_otp_validation():
         print(response.text)
 
 
-@pytest.mark.loginFlow(html)
+@pytest.mark.login(html)
 def test_select_game_validation():
     payload = {
         "gameId": "freefire",
