@@ -142,7 +142,7 @@ def test_select_game_validation():
         'Platform': 'android',
         'SID': '1689061440422-74140',
         'TS': 'undefined',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDIzNjg4MzMsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzcxLCJpYXQiOjE3MDIyODI0MzMsImlkIjo3MjE2fQ.NAQbuvvtF13QnUC7GCfRwXN5wbTAFS9hdybptUxUeU8'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNDkxMTMxMSwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzAyMzE5MzExLCJpZCI6NTA5NjIxfQ.dC8C1dOWaQqFhGAAsQ87i8MeeHTiB_mAvi-B2Em9Zo8'
     }
     base_url = 'https://stage-api.getstan.app'
     response = requests.post(url=base_url + '/api/v4/select/game', headers=header, json=payload)
