@@ -71,7 +71,7 @@ def test_send_otp_validation():
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
     }
-    base_url = 'https://stage-api.getstan.app'
+    base_url = 'https://api.getstan.app'
     response = requests.post(url=base_url + '/api/v1/auth/otp/send', headers=header, json=payload)
 
     data = response.json()
@@ -110,7 +110,7 @@ def test_verify_otp_validation():
         'gameid': 'bgmi',
         'Content-Type': 'application/json'
     }
-    base_url = 'https://stage-api.getstan.app'
+    base_url = 'https://api.getstan.app'
     response = requests.post(url=base_url + '/api/v4/verify/otp', headers=header, json=payload)
 
     data = response.json()
