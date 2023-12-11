@@ -144,7 +144,7 @@ def test_select_game_validation():
         'TS': 'undefined',
         'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNDkxMjg4MiwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzAyMzIwODgyLCJpZCI6NTA5NjIxfQ.qpbbxtCIHm1v7XEedATtqL7vkjBUioAhZ2CQ1VS3Nb4'
     }
-    base_url = 'https://stage-api.getstan.app'
+    base_url = 'https://api.getstan.app'
     response = requests.post(url=base_url + '/api/v4/select/game', headers=header, json=payload)
 
     data = response.json()
