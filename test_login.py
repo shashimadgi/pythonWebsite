@@ -1,6 +1,6 @@
 from pydoc import html
 
-import allure
+# import allure
 import pytest
 import requests
 
