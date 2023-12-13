@@ -1,11 +1,12 @@
 from pydoc import html
 
+import allure
 import pytest
 import requests
 
 
-@pytest.mark.login(html)
-def test_send_otp_validation():
+@pytest.mark.parametrize("game_id", ['bgmi', 'free fire'])
+def test_send_otp_validation(game_id):
     payload = {
         "phone": "+917243464979",
         "isSignup": True,
@@ -67,7 +68,7 @@ def test_send_otp_validation():
         }
     }
     header = {
-        'gameid': 'bgmi',
+        'gameid': game_id,
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
     }
@@ -89,8 +90,8 @@ def test_send_otp_validation():
         print(response.text)
 
 
-@pytest.mark.login(html)
-def test_verify_otp_validation():
+@pytest.mark.parametrize("game_id", ['bgmi', 'freefire'])
+def test_verify_otp_validation(game_id):
     payload = {
         "phone": "+919999999999",
         "otp": "5555",
@@ -100,21 +101,16 @@ def test_verify_otp_validation():
                 "deviceUID": "36e27f877d1a7c25"
             }
         },
-        "utmPayload": {},
-        "campaignUrl": "",
-        "sessionId": None,
-        "referralCode": None,
-        "provider": ""
+        # ... [rest of your payload]
     }
     header = {
-        'gameid': 'bgmi',
+        'gameid': game_id,  # Use parameterized game_id here
         'Content-Type': 'application/json'
     }
     base_url = 'https://api.getstan.app'
     response = requests.post(url=base_url + '/api/v4/verify/otp', headers=header, json=payload)
 
     data = response.json()
-
     if response.status_code == 200:
         assert response.status_code == 200
         print(data)
@@ -127,22 +123,26 @@ def test_verify_otp_validation():
         assert response.status_code == 201
         print(response.text)
 
+    # Assertions and other logic...
 
-@pytest.mark.login(html)
-def test_select_game_validation():
+
+
+@pytest.mark.parametrize("game_id", ['bgmi', 'freefire'])
+def test_select_game_validation(game_id):
     payload = {
-        "gameId": "freefire",
+        'gameid': game_id,
         "referralCode": "SHHDJDDJD"
     }
     header = {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json',
-        'GameId': 'freefire',
+        'gameid': game_id,
         'AppVersion': '94',
         'Platform': 'android',
         'SID': '1689061440422-74140',
         'TS': 'undefined',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNDkxMjg4MiwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzAyMzIwODgyLCJpZCI6NTA5NjIxfQ.qpbbxtCIHm1v7XEedATtqL7vkjBUioAhZ2CQ1VS3Nb4'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNDk2NDE5NiwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzAyMzcyMTk2LCJpZCI6NTA5NjIxfQ.nUPsvMVt3-zp43326--rMREXqc60uIV6YqZTkulRAuM'
+        # 'Authorization': f'Bearer {access_token}'
     }
     base_url = 'https://api.getstan.app'
     response = requests.post(url=base_url + '/api/v4/select/game', headers=header, json=payload)
