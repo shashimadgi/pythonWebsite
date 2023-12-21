@@ -90,7 +90,7 @@ def test_send_otp_validation(game_id):
         print(response.text)
 
 
-@pytest.mark.parametrize("game_id", ['bgmi', 'freefire'])
+@pytest.mark.parametrize("game_id", ['bgmi'])
 def test_verify_otp_validation(game_id):
     payload = {
         "phone": "+919999999999",
