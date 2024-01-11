@@ -141,7 +141,7 @@ def test_select_game_validation(game_id):
         'Platform': 'android',
         'SID': '1689061440422-74140',
         'TS': 'undefined',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNDk2NDE5NiwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzAyMzcyMTk2LCJpZCI6NTA5NjIxfQ.nUPsvMVt3-zp43326--rMREXqc60uIV6YqZTkulRAuM'
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwNzU2NTIxNSwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzA0OTczMjE1LCJpZCI6NTA5NjIxfQ.Uebx8VqqZNxIIB007DAPFHWLeSPzrYz9YNTQ45eos24'
         # 'Authorization': f'Bearer {access_token}'
     }
     base_url = 'https://api.getstan.app'
