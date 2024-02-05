@@ -48,9 +48,9 @@ export default function () {
     });
 
     // Logging responses
-    console.log('Response from /user/join:', response1.body);
-    console.log('Response from /channels:', response2.body);
-    console.log('Response from /club-gifts:', response3.body); // Log the new response
+    // console.log('Response from /user/join:', response1.body);
+    // console.log('Response from /channels:', response2.body);
+    // console.log('Response from /club-gifts:', response3.body); // Log the new response
 }
 
 
