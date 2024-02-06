@@ -61,7 +61,7 @@ export default function () {
         console.log(`URL: ${url} - Status: ${response.status}`);
 
         // Optionally, log a snippet of the response body
-        console.log(`Response body snippet for ${url}: ${response.body.slice(0, 100)}...`);
+        console.log(`Response body snippet for ${url}: ${response.body.slice(0, 100)}....`);
 
         // Perform checks on the response
         check(response, {
