@@ -2,8 +2,11 @@ import http from 'k6/http';
 import { check } from 'k6';
 
 export const options = {
-    vus: 10,
+    vus: 5,
     duration: '10s',
+    thresholds: {
+        checks: ['rate==1.00'], // Ensure 100% of checks must pass
+    },
 };
 
 export default function () {
@@ -21,7 +24,7 @@ export default function () {
             "Platform": "android",
             "SID": "1707129850016-19612",
             "TS": "undefined", // Consider addressing the "undefined" value
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDcyMTQyMzMsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcxMjc4MzMsImlkIjo3MTE3fQ.RITXwoWuUc49hkcUYWmJL1xslhgL5s2FJrQHs4npf04"
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDczMDA5NzUsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcyMTQ1NzUsImlkIjo3MTE3fQ.w6hCMxZgpCUN1xtUwOGY-zRPyiV_2GMj_uKZxPL7PxI"
         }
     };
 
