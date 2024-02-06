@@ -53,23 +53,22 @@ export default function () {
         let response;
 
         if (url.includes("users/update-profile")) {
-            // Use a PUT request for users/update-profile
-            response = http.put(url, putPayload, params);
+            response = http.put(url, JSON.stringify(putPayload), params);
         } else {
-            // Use a GET request for all other URLs
             response = http.get(url, params);
         }
 
-        // Log the URL and response status
-        console.log(`URL: ${url} - Status: ${response.status}`);
+        const isStatus200 = response.status === 200;
+        const isBodyNotEmpty = response.body.length > 0;
 
-        // Optionally, log a snippet of the response body
-        console.log(`Response body snippet for ${url}: ${response.body.slice(0, 100)}....`);
-
-        // Perform checks on the response
-        check(response, {
-            [`Status is 200 for ${url}`]: (r) => r.status === 200,
-            [`Body is not empty for ${url}`]: (r) => r.body.length > 0,
+        const checkResult = check(response, {
+            [`Status is 200 for ${url}`]: (r) => isStatus200,
+            [`Body is not empty for ${url}`]: (r) => isBodyNotEmpty,
         });
+
+        // Log the URL and status if the check fails
+        if (!checkResult) {
+            console.error(`Check failed for ${url} - Status: ${response.status}`);
+        }
     });
 }
