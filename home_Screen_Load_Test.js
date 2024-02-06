@@ -103,7 +103,7 @@ export default function () {
             "Platform": "android",
             "SID": "1707129850016-19612",
             "TS": "some_value", // Previously "undefined", you should provide a meaningful value or remove if not needed
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDcyMTQyMzMsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcxMjc4MzMsImlkIjo3MTE3fQ.RITXwoWuUc49hkcUYWmJL1xslhgL5s2FJrQHs4npf04"
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDczMDA5NzUsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcyMTQ1NzUsImlkIjo3MTE3fQ.w6hCMxZgpCUN1xtUwOGY-zRPyiV_2GMj_uKZxPL7PxI"
         }
     };
 
