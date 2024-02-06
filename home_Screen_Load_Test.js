@@ -5,6 +5,9 @@ import { check } from 'k6';
 export const options = {
     vus: 5,
     duration: '10s',
+    thresholds: {
+        checks: ['rate==1.00'], // Ensure 100% of checks must pass
+    },
 };
 
 export default function () {
