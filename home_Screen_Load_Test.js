@@ -39,6 +39,7 @@ export default function () {
             "gaid": "9af1c2ff-4a28-4032-ae0c-b256b9258fe8",
             "AppVersion": "102",
             "Platform": "android",
+            "GameId": "freefire",
             "SID": "1707129850016-19612",
             "TS": "some_value", // Previously "undefined", you should provide a meaningful value or remove if not needed
             "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDczMDA5NzUsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcyMTQ1NzUsImlkIjo3MTE3fQ.w6hCMxZgpCUN1xtUwOGY-zRPyiV_2GMj_uKZxPL7PxI"
