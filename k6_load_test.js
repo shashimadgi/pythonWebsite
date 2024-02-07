@@ -11,44 +11,44 @@ export const options = {
 
 export default function () {
     // URLs for the requests
-    const url1 = "https://stage-api.getstan.app/api/v1/agora/user/join?channel=D6R8KYHG";
-    const url2 = "https://stage-api.getstan.app/api/v1/agora/channels?offset=0&pageSize=30&lastId=-1";
-    const url3 = "https://stage-api.getstan.app/api/v1/agora/club-gifts?channel=D6R8KYHG"; // New URL for the club gifts endpoint
+    // const url1 = "https://stage-api.getstan.app/api/v1/agora/user/join?channel=D6R8KYHG";
+    const url1 = "https://api.getstan.app/api/v1/agora/channels?offset=0&pageSize=30&lastId=-1";
+    // const url3 = "https://stage-api.getstan.app/api/v1/agora/club-gifts?channel=D6R8KYHG"; // New URL for the club gifts endpoint
     
     // Common headers for all requests
     const params = {
         headers: {
             "Accept": "application/json, text/plain, */*",
             "gaid": "9af1c2ff-4a28-4032-ae0c-b256b9258fe8",
-            "AppVersion": "102",
+            "AppVersion": "108",
             "Platform": "android",
             "SID": "1707129850016-19612",
             "TS": "undefined", // Consider addressing the "undefined" value
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo5MzMzLCJleHAiOjE3MDczMDA5NzUsImZyZWVmaXJlUHJvZmlsZUlkIjo5MzMwLCJpYXQiOjE3MDcyMTQ1NzUsImlkIjo3MTE3fQ.w6hCMxZgpCUN1xtUwOGY-zRPyiV_2GMj_uKZxPL7PxI"
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcwOTkwNDAyOSwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzA3MzEyMDI5LCJpZCI6NTA5NjIxfQ.mnJBP5oy5xLg4qXFBij3FCBeqZ8XQUSXX1vwkJ8ht9Q"
         }
     };
 
     // Making the requests
+    // let response1 = http.get(url1, params);
     let response1 = http.get(url1, params);
-    let response2 = http.get(url2, params);
-    let response3 = http.get(url3, params); // New request for club gifts
+    // let response3 = http.get(url3, params); // New request for club gifts
 
     // Checks for the first and second requests are unchanged
-    check(response1, {
-        'API /user/join status is 200': (r) => r.status === 200,
-        'API /user/join body is not empty': (r) => r.body.length > 0,
-    });
+    // check(response1, {
+    //     'API /user/join status is 200': (r) => r.status === 200,
+    //     'API /user/join body is not empty': (r) => r.body.length > 0,
+    // });
 
-    check(response2, {
+    check(response1, {
         'API /channels status is 200': (r) => r.status === 200,
         'API /channels body is not empty': (r) => r.body.length > 0,
     });
 
     // Checks for the new request
-    check(response3, {
-        'API /club-gifts status is 200': (r) => r.status === 200,
-        'API /club-gifts body is not empty': (r) => r.body.length > 0,
-    });
+    // check(response3, {
+    //     'API /club-gifts status is 200': (r) => r.status === 200,
+    //     'API /club-gifts body is not empty': (r) => r.body.length > 0,
+    // });
 
     // Logging responses
     // console.log('Response from /user/join:', response1.body);
