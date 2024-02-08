@@ -1,6 +1,18 @@
+
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
+
 import http from 'k6/http';
 import { check } from 'k6';
 
+
+export function handleSummary(data) {
+    return {
+      "results.html": htmlReport(data),
+      stdout: textSummary(data, { indent: " ", enableColors: true }),
+    };
+  }
+ 
 export const options = {
     vus: 5,
     duration: '10s',
@@ -55,10 +67,6 @@ export default function () {
     // console.log('Response from /channels:', response2.body);
     // console.log('Response from /club-gifts:', response3.body); // Log the new response
 }
-
-
-
-
 
 
 
