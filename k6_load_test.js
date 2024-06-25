@@ -31,7 +31,7 @@ export default function () {
         "Platform": "android",
         "SID": "1719303489596-28317",
         "TS": "undefined",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcyMTkwNTcyMywiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzE5MzEzNzIzLCJpZCI6NTA5NjIxfQ._uDjGrAarfyD7fT6IoLi9-gaBk7HMcoyTBZJTTZWlzg"
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJiZ21pUHJvZmlsZUlkIjo0Mzc5MjksImV4cCI6MTcyMTkwNzAzNSwiZnJlZWZpcmVQcm9maWxlSWQiOjQzNzkzOCwiaWF0IjoxNzE5MzE1MDM1LCJpZCI6NTA5NjIxfQ.q1UkoeJLuTfmfJxFU9Tb0Zvt7osBTv3wMOYxJKOlSzY"
     };
 
    
@@ -41,17 +41,21 @@ export default function () {
     check(response1, {
         'live-clubs? status is 200': r => r.status === 200,
         'live-clubs? body is not empty': (r) => r.body.length > 0,
+     });
+     if (response1.status !== 200) {
+        console.log('Response received: ' + response1.body);
+      }
 
-    });
+
     let response2 = http.get("https://api.getstan.app/api/v5/get/upcoming-clubs?limit=10&offset=0", { headers: headers });
-
-    
-
     check(response2, {
         "upcoming-clubs? status 200": (r) => r.status === 200,
         "upcoming-clubs? body is not empty": (r) => r.body.length > 0
     });
-    console.log('Response received: ' + response2.body);
+    
+    if (response2.status !== 200) {
+        console.log('Response received: ' + response2.body);
+      }
 
 
     // let ur3 = 'https://api.getstan.app/api/v5/club/messages?clubId=AGPCIUE7';
@@ -61,7 +65,9 @@ export default function () {
         "club/messages? body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response3.body);
+    if (response3.status !== 200) {
+        console.log('Response received: ' + response3.body);
+      }
 
     let response4 = http.get("https://api.getstan.app/api/v4/club-pass/balance", { headers: headers });
     check(response4, {
@@ -69,7 +75,9 @@ export default function () {
         "club-pass/balance body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response4.body);
+    if (response4.status !== 200) {
+        console.log('Response received: ' + response4.body);
+      }
 
     let response5 = http.get("https://api.getstan.app/api/v4/club-gift/fetch-inventory", { headers: headers });
     check(response5, {
@@ -77,7 +85,11 @@ export default function () {
         "club-gift/fetch-inventory body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response5.body);
+    if (response5.status !== 200) {
+        console.log('Response received: ' + response5.body);
+      }
+
+
 
     let response6 = http.get("https://api.getstan.app/api/v1/agora/club-gifts", { headers: headers });
     check(response6, {
@@ -85,7 +97,11 @@ export default function () {
         "agora/club-gifts body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response6.body);
+    if (response6.status !== 200) {
+        console.log('Response received: ' + response6.body);
+      }
+
+
 
     let response7 = http.get("https://api.getstan.app/api/v4/club-pass/getSKU", { headers: headers });
     check(response7, {
@@ -93,7 +109,11 @@ export default function () {
         "club-pass/getSKU body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response7.body);
+    if (response7.status !== 200) {
+        console.log('Response received: ' + response7.body);
+      }
+
+
 
     let response8 = http.get("https://api.getstan.app/api/v5/clubs/rewards", { headers: headers });
     check(response8, {
@@ -101,13 +121,21 @@ export default function () {
         "clubs/rewards body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response8.body);
+    if (response8.status !== 200) {
+        console.log('Response received: ' + response8.body);
+      }
+
 
     let response9 = http.get("https://api.getstan.app/api/v5/clubs/rewards/past", { headers: headers });
     check(response9, {
         "clubs/rewards/paststatus 200": (r) => r.status === 200,
         "clubs/rewards/past body  is not empty": (r) => r.body.length > 0
     });
+
+    if (response9.status !== 200) {
+        console.log('Response received: ' + response9.body);
+      }
+
 
     console.log('Response received: ' + response9.body);
     let response10 = http.get("https://api.getstan.app/api/v5/user/club", { headers: headers });
@@ -116,7 +144,9 @@ export default function () {
         "user/club body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response10.body);
+    if (response10.status !== 200) {
+        console.log('Response received: ' + response10.body);
+      }
 
     console.log('Response received: ' + response9.body);
     let response11 = http.get("https://api.getstan.app/api/v5/club/categories", { headers: headers });
@@ -125,7 +155,9 @@ export default function () {
         "club/categories body  is not empty": (r) => r.body.length > 0
     });
 
-    console.log('Response received: ' + response11.body);
+    if (response11.status !== 200) {
+        console.log('Response received: ' + response11.body);
+      }
 
 
     // console.log(`Response time for live-clubs endpoint: ${response.timings.duration} ms`);
