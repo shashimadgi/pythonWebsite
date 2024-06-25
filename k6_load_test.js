@@ -14,7 +14,7 @@ export function handleSummary(data) {
   }
  
 export const options = {
-    vus: 5,
+    vus: 10,
     duration: '5s',
     thresholds: {
         checks: ['rate==1.00'], // Ensure 100% of checks must pass
